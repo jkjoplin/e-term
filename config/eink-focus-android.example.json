@@ -1,0 +1,15 @@
+{
+  "computers": [
+    {"id": "personal", "label": "This computer", "user": "USER", "host": "this-computer.example.ts.net", "port": 22, "tmux": "/opt/homebrew/bin/tmux"},
+    {"id": "mini", "label": "Other computer", "user": "USER", "host": "other-computer.example.ts.net", "port": 22, "tmux": "/opt/homebrew/bin/tmux"},
+    {"id": "work", "label": "Work laptop", "user": "USER", "host": "REPLACE", "port": 22, "tmux": "/opt/homebrew/bin/tmux"}
+  ],
+  "kindles": {
+    "kindle": "100.64.0.11",
+    "scribe": "100.64.0.12"
+  },
+  "labels": {
+    "kindle": "Paperwhite",
+    "scribe": "Scribe"
+  }
+}

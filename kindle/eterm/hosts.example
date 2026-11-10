@@ -1,0 +1,16 @@
+# Kindle SSH targets. One host per line:
+# id|user|host|port|label|remote command
+#
+# Copy this file to hosts and fill it in. hosts is gitignored.
+# A LAN address is dialed directly and only works on that network.
+# A 100. address or a name ending in .ts.net goes through tailscale nc.
+# Leave host as REPLACE until you know it. The menu shows the slot and refuses it.
+# The remote command is optional. Empty means a normal login shell.
+# Authorize ssh/kindle_eterm.pub on each computer.
+# When tmux exits, the command below reads ~/.eterm-switch.
+# An empty file or "next" exits 40, "prev" exits 41, and a ready-host
+# index exits 50 plus that index. connect.sh follows those codes.
+# A computer without the kterm-256color terminfo entry gets xterm-256color.
+personal|USER|10.0.0.2|22|This computer|sh -c 'case "$TERM" in kterm*) infocmp "$TERM" >/dev/null 2>&1 || TERM=xterm-256color;; esac; TMUX=/opt/homebrew/bin/tmux; "$TMUX" new -As eink; s=$?; f="$HOME/.eterm-switch"; if [ -f "$f" ]; then t=$(head -n 1 "$f" | tr -cd "a-z0-9"); rm -f "$f"; case "$t" in ""|next) exit 40;; prev) exit 41;; [0-9]|[1-9][0-9]) n=$((50 + t)); if [ "$n" -le 80 ]; then exit "$n"; fi; exit 40;; *) exit 40;; esac; fi; exit $s'
+mini|USER|other-computer.example.ts.net|22|Other computer|sh -c 'case "$TERM" in kterm*) infocmp "$TERM" >/dev/null 2>&1 || TERM=xterm-256color;; esac; TMUX=/opt/homebrew/bin/tmux; "$TMUX" new -As eink; s=$?; f="$HOME/.eterm-switch"; if [ -f "$f" ]; then t=$(head -n 1 "$f" | tr -cd "a-z0-9"); rm -f "$f"; case "$t" in ""|next) exit 40;; prev) exit 41;; [0-9]|[1-9][0-9]) n=$((50 + t)); if [ "$n" -le 80 ]; then exit "$n"; fi; exit 40;; *) exit 40;; esac; fi; exit $s'
+work|USER|REPLACE|22|Work laptop|sh -c 'case "$TERM" in kterm*) infocmp "$TERM" >/dev/null 2>&1 || TERM=xterm-256color;; esac; TMUX=/opt/homebrew/bin/tmux; "$TMUX" new -As eink; s=$?; f="$HOME/.eterm-switch"; if [ -f "$f" ]; then t=$(head -n 1 "$f" | tr -cd "a-z0-9"); rm -f "$f"; case "$t" in ""|next) exit 40;; prev) exit 41;; [0-9]|[1-9][0-9]) n=$((50 + t)); if [ "$n" -le 80 ]; then exit "$n"; fi; exit 40;; *) exit 40;; esac; fi; exit $s'

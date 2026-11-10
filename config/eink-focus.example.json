@@ -1,0 +1,20 @@
+{
+  "tmux": "/opt/homebrew/bin/tmux",
+  "tailscale": "/usr/local/bin/tailscale",
+  "kindleHostname": "kindle",
+  "kindleHostnames": ["kindle", "scribe"],
+  "kindleLabels": {"kindle": "Paperwhite", "scribe": "Scribe"},
+  "identity": "ssh/kindle_eterm",
+  "hosts": "kindle/eterm/hosts",
+  "thisComputer": "personal",
+  "remotes": [
+    {
+      "id": "mini",
+      "label": "Other computer",
+      "user": "USER",
+      "host": "other-computer.example.ts.net",
+      "port": 22,
+      "tmux": "/opt/homebrew/bin/tmux"
+    }
+  ]
+}

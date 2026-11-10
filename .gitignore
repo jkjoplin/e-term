@@ -1,0 +1,35 @@
+# Everything personal stays out of git: keys, addresses, device names, notes.
+# Each template next to these files (*.example*) is the shape to copy.
+
+# SSH keys for the Kindle. See docs/kindle.md.
+ssh/
+
+# Filled-in config. Copy the .example file next to each one.
+config/eink-focus.json
+config/eink-focus-android.json
+kindle/eterm/hosts
+kindle/tailscale/hostname
+
+# Generated per-computer launchers (kindle/tools/make-launchers.sh) and local copies.
+kindle/documents/computers/
+kindle/tailscale/local/
+
+# Third-party downloads. docs/kindle.md lists where each one comes from.
+payloads/
+vendor/
+
+# Local notes and logs.
+DEVICE.md
+FINDINGS.md
+HANDOFF.md
+PENDING.md
+logs/
+brand/
+
+# Builds.
+mac/build/
+mac/EinkFocus
+mac/EinkFocus.app/
+**/_CodeSignature/
+
+.DS_Store
